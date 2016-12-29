@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>网易</title>
+    <style media="screen">
+      /*reset*/
+      body {margin: 0; padding: 0;}
+      /*header*/
+      #doc {width: 982px; height: 718px; margin: 0 auto;}
+      .header {margin: 31px 11px 0 11px; position: relative; height: 26px;}
+      .header .img1 {position: absolute; top: 0; left: 0;}
+      .header .img2 {position: absolute; top: 0; left: 130px;}
+      .header .img3 {position: absolute; top: 0; left: 260px;}
+      .header .img4 {position: absolute; top: 0; left: 392px;}
+      .header strong {font-size: 20px; font-family: "微软雅黑"; font-weight: normal; position: absolute; top: 0; left: 405px;}
+      .second {position: absolute; top:7px; right:6px;}
+      .second a {color: #003399; font-size: 12px; text-decoration: none;}
+
+      /*nav*/
+      .nav {margin:0 11px;}
+      .nav p {font-size: 14px; line-height: 38px; color: #fff; text-indent: 21px;}
+      .nav {background: url(img/nav.png) no-repeat;}
+
+      /*mainbody*/
+      .mainbody {margin-top: -14px; position: relative; height: 561px;}
+      .mainbody .first {height: 561px;width: 642px; border: 1px solid #e0e0e0; margin: 0 11px; border-top: none; position: absolute; top: 0; left;}
+      .mainbody .second {height: 561px;width: 315px; border: 1px solid #e0e0e0; margin: 0 11px; border-top: none;border-left: none; position: absolute; top: 0; right: 0;}
+
+      .btn {font-size: 14px;position: absolute; top: 50px; left: 145px;}
+      .first .btn1 {background: url(img/btn1.png) no-repeat; width: 168px; height: 34px; color: #fff; display: inline-block; text-align: center; padding: 10px 0;}
+      .first .btn2 {background: url(img/btn2.png) no-repeat; width: 167px; height: 34px; color: #555; display: inline-block; text-align: center; padding: 10px 0;}
+
+      .mailaddress {position: absolute; top: 119px; left: 67px; font-size: 14px;}
+      .mailaddress p {font-size: 12px; text-indent: 78px;}
+
+      .password {position: absolute; top: 191px; left: 95px;}
+      .password input {width: 334px;}
+      .password p {font-size: 12px; text-indent: 50px;}
+
+      .password2 {position: absolute; top: 264px; left: 67px;}
+      .password2 input {width: 334px;}
+      .password2 p {font-size: 12px; text-indent: 78px;}
+
+      .check {position: absolute; top: 347px; left: 81px;}
+      .check p {font-size: 12px; text-indent: 64px;}
+
+      .checkbox {position: absolute; top: 433px; left: 145px; font-size: 12px; padding: 8px 0;}
+
+      .reges {position: absolute; top: 465px; left: 145px; background: url(img/reges.png) no-repeat; width: 119px; height: 37px;}
+      .reges strong {color: #fff; font-size: 14px;display: block; text-align: center; padding: 11px 0;}
+      /*footer*/
+      .footer {margin: 0 auto; text-align: center; padding-top: 15px;}
+      .footer a {text-decoration: none; color: #999;}
+    </style>
+  </head>
+  <body>
+    <div id="doc">
+      <!-- header -->
+      <div class="header">
+        <a href="http://www.163.com" target="_blank"><img src="img/m163.png" alt="" class="img1"/></a>
+        <a href="http://www.126.com" target="_blank"><img src="img/m126.png" alt="" class="img2"/></a>
+        <a href="http://yeah.net" target="_blank"><img src="img/mnet.png" alt="" class="img3"/></a>
+        <img src="img/bg01.png" alt="" class="img4"/>
+        <strong>中国第一大电子邮件服务商</strong>
+        <div class="second">
+          <a href="#">了解更多</a>
+          <img src="img/bg02.png" alt="" />
+          <a href="#">反馈意见</a>
+        </div>
+      </div>
+
+      <!-- nav -->
+      <div class="nav">
+        <p>欢迎注册无限容量的网易邮箱！邮件地址可以登录使用其他网易旗下产品。</p>
+      </div>
+
+      <!-- mainbody -->
+      <div class="mainbody">
+        <div class="first">
+          <div class="btn">
+            <span class="btn1">注册字母邮箱</span><span class="btn2">注册手机号码邮箱</span>
+          </div>
+          <div class="mailaddress">
+            <img src="img/ness.png" alt="">
+            邮件地址<input type="text" name="" value="建议使用手机号码注册" />
+            @
+            <select class="main" name="">
+              <option value="">163.com</option>
+              <option value="">126.com</option>
+              <option value="">qq.com</option>
+            </select>
+            <p>6~18个字符，可以使用字母、数字、下划线，需以字母开头。</p>
+          </div>
+          <div class="password">
+            <img src="img/ness.png" alt="">
+            密码<input type="password" name="" value="" />
+            <p>6~16个字符，区分大小写。</p>
+          </div>
+          <div class="password2">
+            <img src="img/ness.png" alt="">
+            确认密码<input type="password" name="" value="" />
+            <p>请再次确认密码。</p>
+          </div>
+          <div class="check">
+            <img src="img/ness.png" alt="">
+            验证码<input type="check" name="" value="" /><img src="img/check.png" alt="">
+            <p>请填写图片中的字符，不区分大小写。<a href="#">看不清楚？换张图片</a></p>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="" value="">同意<a href="#">"服务条款"</a>和<a href="#">"隐私权相关政策"</a>
+          </div>
+          <div class="reges">
+            <strong>立即注册</strong>
+          </div>
+        </div>
+
+        <div class="second">
+          <img src="img/second.png" alt="">
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div class="footer">
+          <a href="#">关于网易</a>
+          <a href="#">关于网易免费邮箱</a>
+          <a href="#">邮箱官方博客</a>
+          <a href="#">客户服务</a>
+          <a href="#">隐私政策</a>
+          <img src="img/bg02.png" alt="">
+          <a href="#">网易公司版权所有 &copy 1997-2016</a>
+      </div>
+    </div>
+  </body>
+</html>
