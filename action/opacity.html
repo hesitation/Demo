@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #box {width: 200px; height: 200px; background: #000; filter: alpha(opacity: 3); opacity: 0.3;}          /*filter:alpha(opacity: 30)是为了兼容IE的透明度*/
+    </style>
+  </head>
+  <body>
+    <div id="box">
+
+    </div>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var oDiv = document.getElementById("box");
+        oDiv.onmouseover = function() {
+          startOpacity(100);
+        }
+        oDiv.onmouseout = function() {
+          startOpacity(30);
+        }
+      }
+
+      var timer = null;
+      var alpha = 30;   //保存透明度的初始值，方便比较。
+      function startOpacity(target) {
+        var oDiv = document.getElementById("box");
+        clearInterval(timer);     //清除定时器，防止定时器叠加。
+        timer = setInterval(function() {
+          //判断透明度增加还是降低
+          var speed = 0;
+          if(alpha > target) {
+            speed = -10;
+          } else {
+            speed = 10;
+          }
+          //判断透明度的停止位置
+          if(alpha === target) {
+            clearInterval(timer);
+          } else {
+            alpha += speed;
+            oDiv.style.filter = "alpha(opacity: " + alpha + ")";      //兼容IE
+            oDiv.style.opacity = alpha / 100;
+          }
+        }, 30);
+      }
+    </script>
+  </body>
+</html>
