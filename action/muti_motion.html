@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body,ul, li {margin: 0; padding: 0;}
+      li {list-style: none;}
+      ul li {width: 200px; height: 100px; background: yellow; margin-bottom: 20px;}
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var aLi = document.getElementsByTagName('li');
+        for(var i=0; i<aLi.length; i++) {         //使用for循环将每个需要添加动画的元素都加上需要添加的事件。
+          aLi[i].timer = null;                    //为每个obj元素都添加一个定时器timer属性。
+          aLi[i].onmouseover = function() {
+            startMove(this, 400);
+          }
+          aLi[i].onmouseout = function() {
+            startMove(this, 200);
+          }
+        }
+
+        //var timer = null;                        //多个元素公用一个定时器时会出现bug，可以为每个对象都添加一个timer属性。
+        function startMove(obj, target) {
+          clearInterval(obj.timer);
+          obj.timer = setInterval(function() {
+            var speed = (target - obj.offsetWidth) / 10;
+            speed = (speed > 0) ? Math.ceil(speed) : Math.floor(speed);    //主要是讲速度取整
+
+            if(obj.offsetWidth === target) {
+              clearInterval(obj.timer);
+            } else {
+              obj.style.width = obj.offsetWidth + speed + "px";
+            }
+          }, 30);
+      }
+    }
+    </script>
+  </body>
+</html>
