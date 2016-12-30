@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {margin: 0; padding: 0;}
+      div {width: 200px; height: 200px; background: red; filter: alpha(opacity: 3); opacity: 0.3; float: left; margin-left: 10px;}          /*filter:alpha(opacity: 30)是为了兼容IE的透明度*/
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var oDiv = document.getElementsByTagName("div");
+        for (var i = 0; i < oDiv.length; i++) {
+          oDiv[i].timer = null;             //为每个元素设置单独的定时器，避免争抢情况。
+          oDiv[i].alpha = 30;               // 为每个元素初始化opacity值，避免争抢情况。、
+          oDiv[i].onmouseover = function() {
+            startOpacity(this, 100);         //注意将当前对象作为参数传入函数
+          }
+          oDiv[i].onmouseout = function() {
+            startOpacity(this, 30);        //注意将当前对象作为参数传入函数
+          }
+        }
+      }
+
+      //var timer = null;
+      //var alpha = 30;   //保存透明度的初始值，方便比较。
+      function startOpacity(obj, target) {
+        clearInterval(obj.timer);     //清除定时器，防止定时器叠加。
+        obj.timer = setInterval(function() {
+          //判断透明度增加还是降低
+          var speed = 0;
+          if(obj.alpha > target) {
+            speed = -10;
+          } else {
+            speed = 10;
+          }
+          //判断透明度的停止位置
+          if(obj.alpha === target) {
+            clearInterval(obj.timer);
+          } else {
+            obj.alpha += speed;
+            obj.style.filter = "alpha(opacity: " + obj.alpha + ")";      //兼容IE
+            obj.style.opacity = obj.alpha / 100;
+          }
+        }, 30);
+      }
+    </script>
+  </body>
+</html>
