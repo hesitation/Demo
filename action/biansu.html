@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {margin: 0; padding: 0;}
+      #box {width: 200px; height: 200px; background: #bbb; position: relative; left: -200px; top: 50px;}
+      #box span {width: 20px; height: 50px; position: absolute; top: 0px; left: 200px; background: #b23;}
+    </style>
+  </head>
+  <body>
+    <div id ="box">
+      <span>分享</span>
+    </div>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        var box = document.getElementById("box");
+        box.onmouseover = function () {
+          startMove(0);       //向右移动到offsetLeft值为0
+        }
+        box.onmouseout = function() {
+          startMove(-200);    //向左移动到offsetLeft值为-200
+        }
+      }
+
+      var timer = null;
+      function startMove(target) {
+        clearInterval(timer);       //避免重复开启多个定时器，导致速度变化不均。
+        var box = document.getElementById("box");
+        timer = setInterval(function () {
+          var speed = (target - box.offsetLeft) / 20;   //用当前至目的地间的距离作为速度，做变减速运动。
+          speed = (speed > 0) ? Math.ceil(speed) : Math.floor(speed);      //取消不能到达尽头的问题
+          if(box.offsetLeft === target) {
+            clearInterval(timer);
+          } else {
+              box.style.left = box.offsetLeft + speed + "px";
+          }
+        }, 20);
+      }
+
+    </script>
+  </body>
+</html>
