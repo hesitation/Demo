@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      div {width: 300px; height: 200px; background: #acacac; margin: 40px auto; text-align: center;}
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <span id="clk">单击显示时间</span>
+    </div>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var clk = document.getElementById('clk');
+        clk.onclick = function() {
+          showTime();
+        }
+      }
+
+      function showM(i) {   //处理second和minute的个位数显示问题
+        if(i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+      function showTime() {
+        var clk = document.getElementById('clk');
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() +　1;
+        var day = date.getDate();
+        var week = [
+          "Sun",
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat"
+        ]
+        var weekday = date.getDay();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        minute = showM(minute);
+        var second = date.getSeconds();
+        second = showM(second);
+
+        var myDate = year + "年" + month + "月" + day +"日" + week[weekday] + hour + ":" + minute + ":" + second;
+        clk.innerHTML = myDate;
+
+        setTimeout(showTime, 1000);
+      }
+    </script>
+  </body>
+</html>
