@@ -31,7 +31,7 @@ function startMove(obj, json, fn) {
       }
 
       if(attr === "opacity") {    //对于opacity特殊处理，其没有单位，并且是浮点数
-        obj.style.filter = "alpha(opacity:" + (iCur + speed) + ")";
+        obj.style.filter = "alpha(opacity=" + (iCur + speed) + ")";
         obj.style.opacity = (iCur + speed) / 100;
       } else {
         obj.style[attr] = iCur + speed + "px";
