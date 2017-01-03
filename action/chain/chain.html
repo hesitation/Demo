@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body, ul {margin: 0; padding: 0;}
+      li {
+        list-style: none;
+        width: 200px;
+        height: 100px;
+        background: yellow;
+        margin-bottom: 20px;
+        border: 4px solid #000;
+        filter: alpha(opacity:30);
+        opacity: 0.3;
+      }
+    </style>
+    <script type="text/javascript" src = "move.js"></script>
+  </head>
+  <body>
+    <ul>
+      <li id="li1"></li>
+    </ul>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var oLi = document.getElementById('li1');
+        oLi.timer = null;
+        oLi.onmouseover = function() {
+          startMove(oLi, "width", 400, function() {         //第四个参数是回调函数，在执行完一个startMove后继续执行下一个操作。
+            startMove(oLi, "height", 200, function() {
+              startMove(oLi, "opacity", 100);
+            });
+          });
+        }
+        oLi.onmouseout = function() {
+          startMove(oLi, "opacity", 30, function() {
+            startMove(oLi, "height", 100, function() {
+              startMove(oLi, "width", 200);
+            });
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
