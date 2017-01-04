@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="clk">
+      <span id="clk">hahah</span>
+
+      <script type="text/javascript">
+        window.onload = function() {
+          showTime();
+        }
+
+        function showTime() {
+          var current = new Date();
+          var endtime = new Date("2017, 6, 6");
+          var leftTime = parseInt(endtime.getTime() - current.getTime())/1000;  //处理总的时间，去掉小数
+
+          //将leftTime转化为天、小时、分钟、秒，取模即可
+          var day = Math.floor(leftTime / (24 * 60 * 60));
+          var hour = Math.floor(leftTime /( 60 * 60) % 24);     //总的小时数对24取模
+          var minute = Math.floor(leftTime / 60 % 60);            //总的分钟数对60取模
+          var second = Math.floor(leftTime % 60);
+
+          document.getElementById('clk').innerHTML = day+ "day" + hour + "h" + minute + "min" + second + "s";
+          if(leftTime <= 0) {
+            clearTimeout(timer);
+          }
+          var timer = setTimeout(showTime, 500);
+        }
+      </script>
+    </div>
+  </body>
+</html>
