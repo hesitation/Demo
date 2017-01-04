@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="">
+    <p id="mooc1"></p>
+    <p id="mooc2"></p>
+  </div>
+
+  <!-- 原生JS方法 -->
+  <script type="text/javascript">
+    window.onload = function() {
+      // 通过原生JS语法获取id为mooc1的元素p
+      var p = document.getElementById("mooc1");
+      // 将p元素中的内容改变
+      p.innerHTML = "P1：您好！通过慕课网学习jQuery才是最佳的途径";
+      // 将元素p内容改为红色
+      p.style.color = "#F00";
+    }
+  </script>
+  <!-- 使用jQuery语法 -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /**
+       * 通过jquery语法获取id为mooc2的元素，获得一个jquery对象
+       * 调用该对象的HTMl()方法进行内容更改
+       * 调用该对象的CSS()方法进行样式更改
+       */
+      var $p = $("#mooc2");
+      $p.html("P1：您好！通过慕课网学习jQuery才是最佳的途径").css("color", "#F00"); //注意使用逗号
+    });
+  </script>
+</body>
+</html>
