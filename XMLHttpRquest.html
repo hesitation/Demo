@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    body, input, select, option {
+      font-size: 16px;
+      line-height: 20px;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>员工查询</h1>
+  <labe>请输入员工编号：</labe>
+  <input type="text" name="" id="keyword" />
+  <input type="button" id="search" value="搜索" />
+  <p id="searchResult"></p>
+
+  <h1>员工创建</h1>
+  <labe>请输入员工姓名：</labe>
+  <input type="text" name="" id="stuffName" /> <br />
+  <labe>请输入员工编号：</labe>
+  <input type="text" name="" id="stuffNumber" /><br />
+  <labe>请输入员工性别：</labe>
+  <select id="stuffSex" name="">
+    <option value="男">男</option>
+    <option value="女">女</option>
+  </select>                                   <br />
+  <labe>请输入员工职位：</labe>
+  <input type="text" name="" id="stuffPosition" />
+  <input type="button" id="save" value="保存" />
+  <p id="createResult"></p>
+
+  <script type="text/javascript">
+    //GET发送请求
+    document.getElementById('search').onclick = function() {
+      //发送查询请求并处理
+      var request = new XMLHttpRequest();
+      //将数据拼接到url中
+      request.open("GET", "service.php?number=" + document.getElementById('keyword').value, true);
+      request.send();
+
+      //onreadystatechange事件
+      request.onreadystatechange = function() {
+        if(request.readyState === 4) {
+          if(request.status === 200) {
+            document.getElementById('searchResult').innerHTML = request.responseText;
+          } else {
+            console.log("发生错误" + request.status);
+          }
+        }
+      }
+    }
+
+    //POST请求发送
+    document.getElementById('save').onclick = function() {
+      //发送查询请求并处理
+      var request = new XMLHttpRequest();
+      //将数据拼接到url中
+      request.open("POST", "service.php", true);
+      //构造发送到服务器的数据体
+      var data = "name=" + document.getElementById('stuffName').value
+               + "&number=" + document.getElementById('stuffNumber').value
+               + "&sex=" + document.getElementById('stuffSex').value               //.value获取的是option元素的value属性值，需要单独设置
+               + "&position=" + document.getElementById('stuffPosition').value;
+      alert(data);
+      //使用POST发送请求，必须构造请求头的Content-Type: application/x-www-form-urlencoded
+      request.setRquestHeader("Content-Type", "application/x-www-form-urlencoded");
+      request.send();
+
+      //onreadystatechange事件
+      request.onreadystatechange = function() {
+        if(request.readyState === 4) {
+          if(request.status === 200) {
+            document.getElementById('searchResult').innerHTML = request.responseText;
+          } else {
+            console.log("发生错误" + request.status);
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
