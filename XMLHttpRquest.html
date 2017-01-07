@@ -76,7 +76,7 @@
       request.onreadystatechange = function() {
         if(request.readyState === 4) {
           if(request.status === 200) {
-            document.getElementById('searchResult').innerHTML = request.responseText;
+            document.getElementById('createResult').innerHTML = request.responseText;
           } else {
             console.log("发生错误" + request.status);
           }
