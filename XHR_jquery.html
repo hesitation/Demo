@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    body, input, select, option {
+      font-size: 16px;
+      line-height: 20px;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>员工查询</h1>
+  <labe>请输入员工编号：</labe>
+  <input type="text" name="" id="keyword" />
+  <input type="button" id="search" value="搜索" />
+  <p id="searchResult"></p>
+
+  <h1>员工创建</h1>
+  <labe>请输入员工姓名：</labe>
+  <input type="text" name="" id="stuffName" /> <br />
+  <labe>请输入员工编号：</labe>
+  <input type="text" name="" id="stuffNumber" /><br />
+  <labe>请输入员工性别：</labe>
+  <select id="stuffSex" name="">
+    <option value="男">男</option>
+    <option value="女">女</option>
+  </select>                                   <br />
+  <labe>请输入员工职位：</labe>
+  <input type="text" name="" id="stuffPosition" />
+  <input type="button" id="save" value="保存" />
+  <p id="createResult"></p>
+
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    //jQuery实现
+    $(document).ready(function() {   //页面加载完成后执行脚本
+      $('#search').click() = function() {
+        $.ajax({
+          type: "GET",
+          url: "service.php?number=" + $('#keyword').val(),
+          dataType: "json",已经完成了解析，可以直接使用
+          success: function(data) {    //指定dataType: "json",已经完成了解析，可以直接使用
+              if(data.success) {
+                $('#searchResult').html(data.msg);
+              } else {
+                $('#searchResult').html("出现错误" + data.msg);
+              }
+          },
+          error: function(jqXHR) {          //需要传入jQuery的XHR对象
+            console.log("发生错误" + jqXHR.status);
+          },
+        });
+      };
+    });
+
+    //POST方法
+    $(document).ready(function() {   //页面加载完成后执行脚本
+      $('#save').click() = function() {
+        $.ajax({
+          type: "POST",
+          url: "service.php",
+          dataType: "json",已经完成了解析，可以直接使用
+          data: {
+            name: $('#stuffName').val(),
+            number: $('#stuffNumber').val(),
+            sex: $('#stuffName').val(),
+            position: $('#stuffPosition').val()
+          },
+          success: function(data) {    //指定dataType: "json",已经完成了解析，可以直接使用
+              if(data.success) {
+                $('#createResult').html(data.msg);
+              } else {
+                $('#createResult').html("出现错误" + data.msg);
+              }
+          },
+          error: function(jqXHR) {          //需要传入jQuery的XHR对象
+            console.log("发生错误" + jqXHR.status);
+          },
+        });
+      };
+    });
+
+  </script>
+
+</body>
+</html>
