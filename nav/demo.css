@@ -1,0 +1,64 @@
+/*CSS reset*/
+  body, ul, h1, h2, a, li, img {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  li{
+    list-style: none;
+  }
+  a {text-decoration: none;}
+
+  /*#nav CSS*/
+  #nav {
+    width: 80px;
+    position: fixed;
+    top: 160px;
+    left: 50%;
+    margin-left: 450px;
+  }
+  #nav li a{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  }
+
+  #nav li a:hover,
+  #nav li a.current {
+    background: #08b;
+    color: #fff;
+  }
+
+  /*#content CSS*/
+  #content {
+    width: 900px;
+    margin: 30px auto;
+  }
+  #content h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #08b;
+  }
+  #content .item {
+    border: 1px dotted #08b;
+    margin-bottom: 20px;
+    padding: 20px;
+
+  }
+  #content .item h2 {
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 2px solid #08b;
+    margin-bottom: 20px;
+  }
+  #content .item ul li{
+    display: inline;
+  }
+  #content .item ul li img{
+    width: 260px;
+    height: 260px;
+    margin-right: 26px;
+    border: none;
+  }
