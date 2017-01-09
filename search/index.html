@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style media="screen">
+    body, button, input {
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+      border: none;
+      }
+    .search {
+      background-image: url(img/bg_image.jpg);
+      width: 1800px;
+      height: 860px;
+      margin: 40px auto;
+      background-color: #333;
+    }
+    .search-logo {
+      display: inline;
+      background-image: url(img/search-logo.png);
+      width: 102px;
+      height: 53px;
+      float: left;
+      margin: -8px 30px 0 0;
+    }
+    form {
+      float: left;
+    }
+    button {
+      background-image: url(img/inpu-logo.png);
+      width: 45px;
+      height: 45px;
+    }
+    input {
+      width: 500px;
+      font-size: 25px;             /*撑开输入框的字体大小*/
+      height: 25px;
+      padding: 10px 8px;           /*增加外边距好看*/
+      line-height: 45px;           /*使用line-height可以垂直居中*/
+      background-color: #fff;
+      float: left;
+      outline: none;              /*去掉输入框选中状态的蓝色边框，chrome的默认样式*/
+    }
+    .wrap {
+      position: absolute;
+      top: 160px;
+      left: 160px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search">
+    <div class="wrap">
+      <div class="search-logo"></div>
+
+      <form class="" action="index.html" method="post">
+          <input class="search-input" type="text" name="" value="">
+          <button class="search-button"></button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
