@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    /*CSS reset*/
+    body, header, article, footer, ul, li, a, input, button {margin: 0; padding: 0; font-size: 12px;}
+    button, input {border: none; outline: none;}
+    li {list-style: none;}
+    a {text-decoration: none;}
+
+    /*nav*/
+    .nav {width: 100%; height: 43px; background-color: #333;}
+
+    .nav .nav-first {padding: 9px 31px;}
+    .nav .nav-first li {float: left; line-height: 24px; padding: 0 19px;}   /*padding用来控制li元素的水平间距38px，两边各19px*/
+                      /*承载背景图的li元素添加padding会撑开元素宽度，导致背景图显示位置不正确，单独设置样式时覆盖掉，用margin来控制上下、左右距离*/
+    .nav .nav-first li.nav-first-line {background: url(img/icon.png) -24px 0; width: 3px; height: 13px; padding: 0; margin: 5px 15px 0 14px;}
+    .nav .nav-first li a {color: #999; }
+    .nav .nav-first li a:hover {color: #fff;}
+
+    .nav .nav-second {float: right; width: 419px; padding: 7px 20px 4px; margin-top: -11px;}
+    .nav .nav-second li {float: left;}
+    .nav .nav-second li .nav-second-global{background: url(img/icon.png); width: 18px; height: 19px; margin: -2px 9px 0 0;}
+    .nav .nav-second li.nav-second-line {background: url(img/icon.png) -24px 0; width: 3px; height: 13px; margin: 0 23px 0 20px;}
+    .nav .nav-second li.nav-second-user {background: url(img/icon.png) 0 -19px; width: 32px; height: 32px; margin-top: -8px;margin-left: 9px;}
+    .nav .nav-second li.nav-second-settings {background: url(img/icon.png) 0 -52px; width: 18px; height: 18px; margin:-8px 28 0 0; margin-top: -1px; margin-left: 28px;}
+    .nav .nav-second li a {color: #999;}
+    .nav .nav-second li a:hover {color: #fff;}
+
+    /*article*/
+    .content {background: url(img/bg-image.jpg) no-repeat; width: 100%; height:902px; position: relative;}
+    .content .wrap {position: absolute; top: 154px; left: 169px;}
+    .content .search-logo {float: left; background: url(img/search-logo.png); width: 102px; height: 53px; margin-top: -7px;}
+    .content .search-form {float: left;}
+    .content .search-input {float: left; font-size: 25px; line-height: 22px; height: 45px; width: 500px; margin-left: 23px;;}
+    .content .search-button {width: 45px; height: 45px; cursor: pointer;}
+
+    .footer {background: #333; width: 100%; height: 43px;  line-height: 43px;}
+    .footer ul {float: right; padding: 0 21px;}
+    .footer li {float: left;  color: #999;}
+    .footer li a {font-size: 12px; color: #999;}
+    .footer li span {padding: 0 10px;}
+    .footer li a:hover {color: #fff; text-decoration: underline;}
+
+    /*search-suggest*/
+    .search-suggest {border: 1px dotted #666;  width:543px; background: #fff; display: none;}
+    .search-suggest ul li {font-size: 20px; line-height: 45px;}
+    .search-suggest ul li:hover {background: #999; cursor: pointer;}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <ul class="nav-first">
+      <li><a href="#">图片</a></li>
+      <li><a href="#">视频</a></li>
+      <li><a href="#">学术</a></li>
+      <li><a href="#">词典</a></li>
+      <li><a href="#">地图</a></li>
+      <li><a href="#">更多</a></li>
+      <li class="nav-first-line"></li>
+      <li><a href="#">Office Online</a></li>
+      <li><a href="#">Outlook.com</a></li>
+    </ul>
+
+    <ul class="nav-second">
+      <li>
+        <a href="#">
+          <ul>
+            <li  class="nav-second-global"></li>
+            <li>Switch to Bing English</li>
+          </ul>
+        </a>
+      </li>
+      <li class="nav-second-line"></li>
+      <li><a href="#">登录</a></li>
+      <li class="nav-second-user"><a href="#"></a></li>
+      <li class="nav-second-settings"><a href="#"></a></li>
+    </ul>
+  </header>
+
+  <article class="content">
+    <div class="wrap">
+      <div class="search-logo">
+
+      </div>
+      <form class="search-form" action="index.html" method="post">
+        <input class="search-input" id="search-input" type="text" name="" value="" />
+        <button class="search-button" id="search-button" type="button" name="button"><img src="img/inpu-logo.png" alt="" /></button>
+      </form>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <ul>
+      <li><span>&copy2017 Microsoft</span></li>
+      <li> | <span>京ICP备10036305号</span></li>
+      <li> | <a href=""><span>Privacy and Cookies</span></a></li>
+      <li> | <a href=""><span>Legal</span></a</li>
+      <li> | <a href=""><span>Advertise</span></a></li>
+      <li> | <a href=""><span>举报问题</span></a></li>
+      <li> | <a href=""><span>Help</span></a></li>
+      <li> | <a href=""><span>Feedback</span></a></li>
+    </ul>
+  </footer>
+
+  <div class="search-suggest" id="search-suggest">
+    <ul id="search-result">
+      <li>haha</li>
+      <li>xixi</li>
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="script.js"></script>
+  <!-- <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var searchSuggest = $("#search-suggest");
+      //绑定键盘事件，在按下键盘后进行查询
+      $("#search-input").on("keyup", function() {
+        var searchInput = $("#search-input")
+        var keyword = searchInput.val();
+        var url = "http://api.bing.com/qsonhs.aspx?q=" + keyword;
+        $.get(url, function(data) {
+          var items = data.AS.Results[0].Suggests;
+          var html = "";
+          for(var i=0; i<items.length; i++) {
+            html += "<li>" + items[i].Txt + "</li>\n"
+          }
+          $("#search-result").html(html);
+
+          //设置suggest框的位置
+          var currentTop = searchInput.offset().top;
+          var currentLeft = searchInput.offset().left;
+          searchSuggest.css({
+            top: currentTop + 45 + 1,
+            left: currentLeft,
+            position: "absolute"
+          });
+          searchSuggest.show();
+        }, "json");
+
+      });
+
+      //鼠标点击其他位置时，suggest框消失
+      $("body").on("click", function() {
+        $("#searchSuggest").hide();
+      });
+
+      //为弹窗添加点击li标签，跳转到对应的界面，事件代理。三个参数
+      $("#search-result").on("click", "li", function() {
+        var keyword = $(this).text();     //保存当前的li标签
+        location.href = "http://cn.bing.com/search?q=" + keyword;
+      });
+
+      //为按钮添加单击事件，搜索选择框内的内容
+      $("#search-button").on("click", function() {
+        var keyword = $("#search-input").val();
+        location.href = "http://cn.bing.com/search?q=" + keyword;
+      });
+
+      // $("#search-button").on("keypress", function(e) {
+      //   if(e.keyCode === 13) {
+      //     var keyword = $("#search-input").val();
+      //     console.log(keyword);
+      //     location.href = "http://cn.bing.com/search?q=" + keyword;
+      //   }
+      // });
+    }); -->
+  </script>
+</body>
+</html>
