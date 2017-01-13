@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    body, h2, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    #pannel {
+      position: absolute;
+      top: 200px;
+      left: 600px;
+      width: 360px;
+      height: 240px;
+    }
+    #pannel h2 {
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      background: #c5217a;
+    }
+    #pannel p {
+      text-align: center;
+      height: 200px;
+      line-height: 200px;
+      background: #928a7a;
+    }
+  </style>
+</head>
+<body>
+  <div id="pannel">
+    <h2 id="pannel_head">haha</h2>
+    <p>body</p>
+  </div>
+
+  <script type="text/javascript">
+    //原理是利用绝对定位，计算控制pannel左上角的坐标与鼠标的坐标减去鼠标距pannel的距离
+    var dragH = document.getElementById('pannel_head');
+    //在顶部绑定鼠标按下事件
+    dragH.onmousedown = fndown;
+
+    function fndown(e) {
+      var pan = document.getElementById('pannel');
+      e = event || window.event;
+      var disX = e.clientX - pan.offsetLeft;
+      var disY = e.clientY - pan.offsetTop;
+
+      document.onmousemove = function() {
+        //传入鼠标距离pannel的左侧距离left和顶部距离top
+        fnmove(e, disX, disY);
+      } ;
+
+      document.onmouseup = function() {
+        document.onmousemove = null;
+      }
+    }
+
+//mousemove和mouseup事件绑定在document对象上
+
+    function fnmove(e, x, y) {
+        e = event || window.event;
+        var pan = document.getElementById('pannel');
+        //当前的鼠标坐标减去鼠标距离pannel的距离，便是左上角定位的坐标
+        //控制pannel不移除显示区域，所以x大于0并且小于显示区域宽度减去pannel宽度，小于0时，将高度置0；大于maxW时，置为maxW
+        //控制pannel不移除显示区域，所以y大于0并且小于显示区域高度减去pannel高度
+        var clientW = document.documentElement.clientWidth || document.body.clientWidth;
+        var clientH = document.documentElement.clientHeight || document.body.clientHeight;
+        var maxW = clientW - pan.offsetWidth;
+        var maxH = clientH - pan.offsetHeight;
+
+        var x = e.clientX - x;
+        var y = e.clientY - y;
+
+        //进行判断
+        if(x < 0) {
+          x = 0;
+        } else if (x > maxW) {
+          x = maxW;
+        }
+        if(y < 0) {
+          y = 0;
+        } else if (y > maxH) {
+          y = maxH;
+        }
+
+        //  注意加上像素单位
+        pan.style.left = x + "px";
+        pan.style.top = y + "px";
+    }
+  </script>
+</body>
+</html>
