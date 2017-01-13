@@ -1,0 +1,24 @@
+* {margin: 0; padding: 0;}
+
+#container {position: relative;}
+
+.box {
+  float: left;
+  padding: 10px 0 0 15px;
+}
+
+.box
+
+.pic {
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #aaa;
+}
+
+.pic img {
+  display: block;
+  width: 230px;
+  height: auto;
+  vertical-align: middle;     /*去掉div比图片高的3px*/
+}
