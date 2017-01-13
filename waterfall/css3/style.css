@@ -1,0 +1,33 @@
+* {margin: 0; padding: 0;}
+
+#container {
+  -webkit-column-width: 337px;
+  -moz-column-width: 337px;
+  -o-column-width: 337px;
+  -ms-column-width: 337px;
+  /*-webkit-column-count: 4;
+  -moz-column-count: 4;
+  -o-column-count: 4;
+  -ms-column-count: 4;*/
+}
+
+.box {
+  float: left;
+  padding: 10px 0 0 15px;
+}
+
+.box
+
+.pic {
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #aaa;
+}
+
+.pic img {
+  display: block;
+  width: 300px;
+  height: auto;
+  vertical-align: middle;     /*去掉div比图片高的3px*/
+}
